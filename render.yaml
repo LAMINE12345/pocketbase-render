@@ -8,6 +8,6 @@ services:
       mountPath: /var/lib/pb_data
       sizeGB: 1
     buildCommand: |
-      chmod +x start.sh
-      ./pocketbase serve --dir=/var/lib/pb_data --http://127.0.0.1:8090
+     #!/bin/sh
+    ./pocketbase serve --http=0.0.0.0:$PORT --dir=/var/lib/pb_data
     startCommand: ./start.sh
