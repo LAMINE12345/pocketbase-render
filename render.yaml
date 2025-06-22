@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: pocketbase
+    env: docker
+    plan: free
+    disk:
+      name: pb_data
+      mountPath: /var/lib/pb_data
+      sizeGB: 1
+    buildCommand: |
+      chmod +x start.sh
+      ./pocketbase serve --dir=/var/lib/pb_data --http://127.0.0.1:8090
+    startCommand: ./start.sh
